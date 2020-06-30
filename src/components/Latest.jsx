@@ -22,9 +22,7 @@ class LatestRealease extends React.Component {
     
     componentDidMount = () => {
 
-        const url = process.env.REACT_APP_API_URL
-            //"http://localhost:3001/books"
-            
+        const url = process.env.REACT_APP_API_URL            
           
           this.setState({ loading: true }, async () => {
           try {

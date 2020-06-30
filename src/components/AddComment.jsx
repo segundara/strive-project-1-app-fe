@@ -13,9 +13,9 @@ class AddComment extends React.Component {
   state = {
       //selected: false,
     commentObj: {
-        comment: '',
-        rate: 1,
-        elementId: this.props.selectedBook
+        text: '',
+        userName: ''
+        //bookId: this.props.selectedBook
     }
     
   }
@@ -24,18 +24,10 @@ class AddComment extends React.Component {
   saveComment = async e => {
     e.preventDefault();
 
-    const url = "https://striveschool.herokuapp.com/api/comments/";
-
-        const username = 'user24';
-        const password = '48D4vaVh6Ra3DD8w';
-
-        const headers = new Headers();
-
-        headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', 'Basic ' + btoa(username + ":" + password));
+    const url = process.env.REACT_APP_API_URL
 
     try {
-      let response = await fetch(url, {
+      let response = await fetch(url +"/"+ this.props.selectedBook + "/comments", {
         method: "POST",
         body: JSON.stringify(this.state.commentObj),
         headers: headers,
@@ -44,9 +36,9 @@ class AddComment extends React.Component {
         alert('Comment saved!')
         this.setState({
           commentObj: {
-            comment: '',
-            rate: 1,
-            elementId: this.props.selectedBook
+            text: '',
+            userName: ''
+            //bookId: this.props.selectedBook
           }
         })
       } else {
@@ -63,12 +55,12 @@ class AddComment extends React.Component {
     let currentId = event.currentTarget.id
     console.log(currentId)
 
-    if (currentId === 'elementId'){
-      commentObj[currentId] = this.props.selectedBook
-    }
-    else commentObj[currentId] = event.currentTarget.value
+    // if (currentId === 'bookId'){
+    //   commentObj[currentId] = this.props.selectedBook
+    // }
+    // else commentObj[currentId] = event.currentTarget.value
 
-    //commentObj[currentId] = event.currentTarget.value
+    commentObj[currentId] = event.currentTarget.value
 
     this.setState({ commentObj: commentObj })
   }
@@ -79,31 +71,31 @@ class AddComment extends React.Component {
       <>
       {this.props.selectedBook && (
       <div className="mt-5 mb-5">
-        <h5>Add more comments with the Form below!</h5>
+        <h5>Add comments with the Form below!</h5>
         <Form onSubmit={this.saveComment}>
           <Row>
-            <Col md={0}>
+            {/* <Col md={0}>
               <Form.Group>
-                {/* <Form.Label htmlFor="elementId">Book Id</Form.Label> */}
+                <Form.Label htmlFor="bookId">Book Id</Form.Label>
                 <Form.Control
                   type="hidden"
-                  name="elementId"
-                  id="elementId"
+                  name="bookId"
+                  id="bookId"
                   placeholder=""
-                  value={this.state.commentObj.elementId}
+                  value={this.state.commentObj.bookId}
                   onChange={this.updateCommentField}
                 />
               </Form.Group>
-            </Col>
+            </Col> */}
             <Col md={6}>
               <Form.Group>
-                <Form.Label htmlFor="comment">Comment</Form.Label>
+                <Form.Label htmlFor="text">Comment</Form.Label>
                 <Form.Control
                   type="text"
-                  name="comment"
-                  id="comment"
+                  name="text"
+                  id="text"
                   placeholder="Your comment"
-                  value={this.state.commentObj.comment}
+                  value={this.state.commentObj.text}
                   onChange={this.updateCommentField}
                 />
               </Form.Group>
@@ -112,22 +104,15 @@ class AddComment extends React.Component {
           <Row> */}
             <Col md={5}>
               <Form.Group>
-                <Form.Label htmlFor="rate">
-                  Rate
-              </Form.Label>
+                <Form.Label htmlFor="userName">Comment</Form.Label>
                 <Form.Control
-                  as="select"
-                  name="rate"
-                  id="rate"
-                  value={this.state.commentObj.rate}
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  placeholder="Your name"
+                  value={this.state.commentObj.userName}
                   onChange={this.updateCommentField}
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Form.Control>
+                />
               </Form.Group>
             </Col>
           </Row>
