@@ -19,7 +19,7 @@ class BookDetails extends React.Component {
           
           this.setState({ loading: true }, async () => {
           try {
-            let response = await fetch(url  +"books/" + this.props.match.params.id, {
+            let response = await fetch(url  +"/books/" + this.props.match.params.id, {
               method: "GET",
             });
             const book = await response.json();

@@ -28,7 +28,7 @@ class LatestRealease extends React.Component {
           
           this.setState({ loading: true }, async () => {
           try {
-            let response = await fetch(url +"books", {
+            let response = await fetch(url +"/books", {
               method: "GET",
             });
             let books = await response.json();

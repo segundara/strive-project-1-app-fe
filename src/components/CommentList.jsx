@@ -67,7 +67,7 @@ class CommentList extends React.Component {
           
           this.setState({ loading: true }, async () => {
           try {
-            let response = await fetch(url +"books/" +
+            let response = await fetch(url +"/books/" +
             this.props.selectedBook + "/comments", {
               method: "GET",
               //headers: headers,
