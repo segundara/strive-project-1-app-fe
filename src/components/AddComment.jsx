@@ -73,7 +73,7 @@ class AddComment extends React.Component {
         <h5>Add comments with the Form below!</h5>
         <Form onSubmit={this.saveComment}>
           <Row>
-            <Col md={6}>
+            <Col md={0}>
               <Form.Group>
                 {/* <Form.Label htmlFor="bookId">Comment</Form.Label> */}
                 <Form.Control
