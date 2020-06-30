@@ -13,8 +13,8 @@ class AddComment extends React.Component {
   state = {
       //selected: false,
     commentObj: {
-        text: '',
-        userName: ''
+      userName: '',
+        text: ''
         //bookId: this.props.selectedBook
     }
     
@@ -29,14 +29,14 @@ class AddComment extends React.Component {
     try {
       let response = await fetch(url +"/books/"+ this.props.selectedBook + "/comments", {
         method: "POST",
-        body: JSON.stringify(this.state.commentObj),
+        body: this.state.commentObj,
       })
       if (response.ok) {
         alert('Comment saved!')
         this.setState({
           commentObj: {
-            text: '',
-            userName: ''
+            userName: '',
+            text: ''
             //bookId: this.props.selectedBook
           }
         })
