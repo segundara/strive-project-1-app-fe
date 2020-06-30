@@ -27,7 +27,7 @@ class AddComment extends React.Component {
     const url = process.env.REACT_APP_API_URL
 
     try {
-      let response = await fetch(url +"/"+ this.props.selectedBook + "/comments", {
+      let response = await fetch(url +"/books/"+ this.props.selectedBook + "/comments", {
         method: "POST",
         body: JSON.stringify(this.state.commentObj),
       })
