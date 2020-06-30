@@ -30,7 +30,6 @@ class AddComment extends React.Component {
       let response = await fetch(url +"/"+ this.props.selectedBook + "/comments", {
         method: "POST",
         body: JSON.stringify(this.state.commentObj),
-        headers: headers,
       })
       if (response.ok) {
         alert('Comment saved!')
@@ -55,11 +54,6 @@ class AddComment extends React.Component {
     let currentId = event.currentTarget.id
     console.log(currentId)
 
-    // if (currentId === 'bookId'){
-    //   commentObj[currentId] = this.props.selectedBook
-    // }
-    // else commentObj[currentId] = event.currentTarget.value
-
     commentObj[currentId] = event.currentTarget.value
 
     this.setState({ commentObj: commentObj })
@@ -74,19 +68,6 @@ class AddComment extends React.Component {
         <h5>Add comments with the Form below!</h5>
         <Form onSubmit={this.saveComment}>
           <Row>
-            {/* <Col md={0}>
-              <Form.Group>
-                <Form.Label htmlFor="bookId">Book Id</Form.Label>
-                <Form.Control
-                  type="hidden"
-                  name="bookId"
-                  id="bookId"
-                  placeholder=""
-                  value={this.state.commentObj.bookId}
-                  onChange={this.updateCommentField}
-                />
-              </Form.Group>
-            </Col> */}
             <Col md={6}>
               <Form.Group>
                 <Form.Label htmlFor="text">Comment</Form.Label>
