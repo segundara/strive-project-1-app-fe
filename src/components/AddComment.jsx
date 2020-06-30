@@ -14,8 +14,8 @@ class AddComment extends React.Component {
       //selected: false,
     commentObj: {
       userName: '',
-        text: ''
-        //bookId: this.props.selectedBook
+        text: '',
+        bookId: this.props.selectedBook
     }
     
   }
@@ -29,15 +29,15 @@ class AddComment extends React.Component {
     try {
       let response = await fetch(url +"/books/"+ this.props.selectedBook + "/comments", {
         method: "POST",
-        body: this.state.commentObj,
+        body: JSON.stringify(this.state.commentObj),
       })
       if (response.ok) {
         alert('Comment saved!')
         this.setState({
           commentObj: {
             userName: '',
-            text: ''
-            //bookId: this.props.selectedBook
+            text: '',
+            bookId: this.props.selectedBook
           }
         })
       } else {
@@ -54,7 +54,11 @@ class AddComment extends React.Component {
     let currentId = event.currentTarget.id
     console.log(currentId)
 
-    commentObj[currentId] = event.currentTarget.value
+    if (currentId === 'bookId'){
+      commentObj[currentId] = this.props.selectedBook
+    }
+    else commentObj[currentId] = event.currentTarget.value
+    //commentObj[currentId] = event.currentTarget.value
 
     this.setState({ commentObj: commentObj })
   }
@@ -69,6 +73,19 @@ class AddComment extends React.Component {
         <h5>Add comments with the Form below!</h5>
         <Form onSubmit={this.saveComment}>
           <Row>
+            <Col md={6}>
+              <Form.Group>
+                {/* <Form.Label htmlFor="bookId">Comment</Form.Label> */}
+                <Form.Control
+                  type="hidden"
+                  name="bookId"
+                  id="bookId"
+                  placeholder=""
+                  value={this.state.commentObj.bookId}
+                  onChange={this.updateCommentField}
+                />
+              </Form.Group>
+            </Col>
             <Col md={6}>
               <Form.Group>
                 <Form.Label htmlFor="text">Comment</Form.Label>
