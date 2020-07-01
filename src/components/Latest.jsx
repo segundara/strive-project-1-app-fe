@@ -20,7 +20,7 @@ class LatestRealease extends React.Component {
     };
 
     handleDropdownChange = (category) => {
-        this.setState({categorySelected: category});
+        this.setState({books: [], categorySelected: category});
 
         const url = process.env.REACT_APP_API_URL            
         
