@@ -90,6 +90,26 @@ class CommentList extends React.Component {
         })
       };
 
+      
+    deleteComment = async ({comment}) => {
+        let id = ''
+        this.state.commentss.map((a)=>{
+            if (a.commentID === comment.commentID){
+                return id += a.commentID
+            }
+        })
+        console.log(id)
+
+        // const url = "https://striveschool.herokuapp.com/api/comments/";
+    
+
+        // let response = await fetch(url + id, {
+        // method: "DELETE",
+        // headers: headers,
+        // });
+        // return response;
+    };
+
     render(){
     return (
         <Container>
