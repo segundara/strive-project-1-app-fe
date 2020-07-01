@@ -32,7 +32,7 @@ class LatestRealease extends React.Component {
             let books = await response.json();
             console.log(books)
             this.setState({
-                books: books.data,
+                books: books.catData,
                 loading: false
             });
             } catch (err) {
