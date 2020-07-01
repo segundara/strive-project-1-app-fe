@@ -70,7 +70,7 @@ class AddComment extends React.Component {
           <Row>
             <Col md={6}>
               <Form.Group>
-                <Form.Label htmlFor="text">Comment</Form.Label>
+                <Form.Label htmlFor="text">Text</Form.Label>
                 <Form.Control
                   type="text"
                   name="text"
@@ -83,7 +83,7 @@ class AddComment extends React.Component {
             </Col>
             <Col md={5}>
               <Form.Group>
-                <Form.Label htmlFor="userName">Comment</Form.Label>
+                <Form.Label htmlFor="userName">Name</Form.Label>
                 <Form.Control
                   type="text"
                   name="userName"
