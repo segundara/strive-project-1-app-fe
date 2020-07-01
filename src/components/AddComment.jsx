@@ -30,6 +30,9 @@ class AddComment extends React.Component {
       let response = await fetch(url +"/books/"+ this.props.selectedBook + "/comments", {
         method: "POST",
         body: JSON.stringify(this.state.commentObj),
+        headers: {
+          "Content-Type": "application/json"
+        }
       })
       if (response.ok) {
         alert('Comment saved!')
