@@ -13,7 +13,7 @@ class BookDetails extends React.Component {
     }
 
     componentDidMount (){
-        console.log(this.props.match.params.id)
+        //console.log(this.props.match.params.id)
         
         const url = process.env.REACT_APP_API_URL
           
@@ -23,7 +23,7 @@ class BookDetails extends React.Component {
               method: "GET",
             });
             const book = await response.json();
-            console.log("Selected book is ", book);
+            //console.log("Selected book is ", book);
             // console.log(url);
             this.setState({
               item: book,

@@ -61,7 +61,7 @@ class LatestRealease extends React.Component {
                 method: "GET",
             });
             let books = await response.json();
-            console.log(books)
+            //console.log(books)
             this.setState({
                 books: books.data,
                 loading: false
@@ -84,7 +84,7 @@ class LatestRealease extends React.Component {
 
     render() {
         // console.log(this.state.categorySelected)
-        console.log(this.state.books)
+        //console.log(this.state.books)
         return (
             <>
                 <Row className="mx-0 pb-3">

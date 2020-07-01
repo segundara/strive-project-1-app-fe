@@ -61,7 +61,7 @@ class CommentList extends React.Component {
 
     
     componentDidMount = async () => {
-        console.log(this.props.selectedBook)
+        //console.log(this.props.selectedBook)
           const url = process.env.REACT_APP_API_URL
           
           this.setState({ loading: true }, async () => {

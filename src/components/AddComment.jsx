@@ -60,7 +60,7 @@ class AddComment extends React.Component {
 
 
   render() {
-    console.log(this.state.commentObj)
+    //console.log(this.state.commentObj)
     return (
       <>
       {this.props.selectedBook && (
