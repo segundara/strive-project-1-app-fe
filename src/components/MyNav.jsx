@@ -37,6 +37,5 @@ class NavBar extends React.Component {
     }
 }
 
-// let bookCategories = ['fantasy','history','horror','romance','scifi']
 
 export default withRouter(NavBar);
