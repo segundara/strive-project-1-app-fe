@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
 
-let bookCategories = ['fantasy','history','horror','romance','scifi']
+let bookCategories = ['','fantasy','history','horror','romance','scifi']
 class LatestRealease extends React.Component {
     state = {
         books: [],
@@ -32,7 +32,7 @@ class LatestRealease extends React.Component {
             let books = await response.json();
             console.log(books)
             this.setState({
-                books: books.filteredBooks,
+                books: books.data,
                 loading: false
             });
             } catch (err) {
