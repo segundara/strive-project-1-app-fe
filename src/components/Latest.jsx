@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
 
-let bookCategories = ['fantasy','history','horror','romance','scifi']
+let bookCategories = ['All-Category','fantasy','history','horror','romance','scifi']
 class LatestRealease extends React.Component {
     state = {
         books: [],
@@ -20,34 +20,39 @@ class LatestRealease extends React.Component {
     };
 
     handleDropdownChange = (category) => {
-        this.setState({books: [], categorySelected: category});
+        if(category === 'AllCategory'){
+            this.setState({books: []});
+            this.displayALLCat()
+        }else{
+            this.setState({books: [], categorySelected: category});
 
-        const url = process.env.REACT_APP_API_URL            
-        
-        this.setState({ loading: true }, async () => {
-            try {
-            let response = await fetch(url +"/books?category="+ this.state.categorySelected, {
-                method: "GET",
-            });
-            let books = await response.json();
-            console.log(books)
-            this.setState({
-                books: books.catData,
-                loading: false
-            });
-            } catch (err) {
-            console.log(err);
-            this.setState({
-                err: err,
-                books: [],
-                loading: false
+            const url = process.env.REACT_APP_API_URL            
+            
+            this.setState({ loading: true }, async () => {
+                try {
+                let response = await fetch(url +"/books?category="+ this.state.categorySelected, {
+                    method: "GET",
                 });
-            }
-        })
+                let books = await response.json();
+                console.log(books)
+                this.setState({
+                    books: books.catData,
+                    loading: false
+                });
+                } catch (err) {
+                console.log(err);
+                this.setState({
+                    err: err,
+                    books: [],
+                    loading: false
+                    });
+                }
+            })
+        }
+        
     };
     
-    componentDidMount = () => {
-
+    displayALLCat = () => {        
         const url = process.env.REACT_APP_API_URL            
         
         this.setState({ loading: true }, async () => {
@@ -70,6 +75,10 @@ class LatestRealease extends React.Component {
                 });
             }
         })
+    }
+
+    componentDidMount = () => {
+        this.displayALLCat()
     }
 
 
