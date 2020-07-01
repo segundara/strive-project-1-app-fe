@@ -72,6 +72,8 @@ class LatestRealease extends React.Component {
 
 
     render() {
+        console.log(this.state.categorySelected)
+        console.log(this.state.books)
         return (
             <>
                     <Row className="mx-0 pb-3">
