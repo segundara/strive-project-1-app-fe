@@ -53,11 +53,6 @@ class AddComment extends React.Component {
     let commentObj = this.state.commentObj
     let currentId = event.currentTarget.id
     console.log(currentId)
-
-    // if (currentId === 'bookId'){
-    //   commentObj[currentId] = this.props.selectedBook
-    // }
-    // else commentObj[currentId] = event.currentTarget.value
     commentObj[currentId] = event.currentTarget.value
 
     this.setState({ commentObj: commentObj })

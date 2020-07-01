@@ -79,7 +79,6 @@ class CommentList extends React.Component {
               commentss: comments.data,
               loading: false
             });
-            console.log(this.state.commentss);
           } catch (err) {
             console.log(err);
             this.setState({
