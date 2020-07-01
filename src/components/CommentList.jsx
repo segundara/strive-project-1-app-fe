@@ -10,7 +10,6 @@ class CommentList extends React.Component {
     state = {
         selected: '',
         commentss: [],
-        //selectedComment: {},
         selectedBook: this.props.selectedBook,
         loading: false,
         err: ''
@@ -70,11 +69,9 @@ class CommentList extends React.Component {
             let response = await fetch(url +"/books/" +
             this.props.selectedBook + "/comments", {
               method: "GET",
-              //headers: headers,
             });
             let comments = await response.json();
             console.log("Comments are ", comments);
-            //console.log(url);
             this.setState({
               commentss: comments.data,
               loading: false
@@ -100,14 +97,15 @@ class CommentList extends React.Component {
         })
         console.log(id)
 
-        // const url = "https://striveschool.herokuapp.com/api/comments/";
-    
+        const url = process.env.REACT_APP_API_URL
+        const resp = await fetch(url +"/books/" +
+                    this.props.selectedBook + "/comments/" + id, {
+        method: "DELETE"
+        })
+        if (resp.ok) {
+            alert("Comment deleted!")
+        }
 
-        // let response = await fetch(url + id, {
-        // method: "DELETE",
-        // headers: headers,
-        // });
-        // return response;
     };
 
     render(){
