@@ -21,7 +21,7 @@ class LatestRealease extends React.Component {
 
     handleDropdownChange = (category) => {
         if(category === 'All-Category'){
-            this.setState({books: []});
+            this.setState({books: [], categorySelected: category});
             this.displayALLCat()
         }else{
             this.setState({books: [], categorySelected: category});
