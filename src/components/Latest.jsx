@@ -8,7 +8,6 @@ import Loader from 'react-loader-spinner';
 class LatestRealease extends React.Component {
     state = {
         books: [],
-        //categorySelected: 'fantasy',
         selectedBook: null,
         loading: false,
         err: '' 
@@ -17,8 +16,6 @@ class LatestRealease extends React.Component {
     showBookComment = (book) => {
         this.setState({selectedBook: book});
     };
-
-
     
     componentDidMount = () => {
 

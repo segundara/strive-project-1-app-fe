@@ -8,7 +8,7 @@ class NavBar extends React.Component {
             <div className="fixed-top">
             <Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor: '#343a40', border: 2 + 'px solid #6351ce'}}>
                 <Link to='/'>
-                    <Navbar.Brand href="#home">Strive BookStore</Navbar.Brand>
+                    <Navbar.Brand>Strive BookStore</Navbar.Brand>
                 </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -23,7 +23,6 @@ class NavBar extends React.Component {
                             Home
                         </Link>
                         <Nav.Link href="#">About</Nav.Link>
-                        <Nav.Link href="#">Brouse</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#">More details</Nav.Link>
@@ -37,5 +36,7 @@ class NavBar extends React.Component {
         )
     }
 }
+
+// let bookCategories = ['fantasy','history','horror','romance','scifi']
 
 export default withRouter(NavBar);
