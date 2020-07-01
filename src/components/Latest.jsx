@@ -9,7 +9,7 @@ let bookCategories = ['All-Category','fantasy','history','horror','romance','sci
 class LatestRealease extends React.Component {
     state = {
         books: [],
-        categorySelected: '',
+        categorySelected: 'All-Category',
         selectedBook: null,
         loading: false,
         err: '' 
