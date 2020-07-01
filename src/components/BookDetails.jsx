@@ -23,7 +23,7 @@ class BookDetails extends React.Component {
               method: "GET",
             });
             const book = await response.json();
-            console.log("books are ", book);
+            console.log("Selected book is ", book);
             // console.log(url);
             this.setState({
               item: book,
