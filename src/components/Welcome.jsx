@@ -4,8 +4,8 @@ import { Jumbotron, Container } from 'react-bootstrap';
 class JumBotron extends React.Component {
     render() {
         return (
-            <Jumbotron fluid className="text-center pt-5">
-                <Container>
+            <Jumbotron fluid className="text-center">
+                <Container className="pt-5">
                     <h1>Welcome!</h1>
                     <p>
                         If you have been searching for the right place
