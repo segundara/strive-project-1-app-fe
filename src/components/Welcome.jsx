@@ -13,7 +13,7 @@ class JumBotron extends React.Component {
                         then you are just in the right place.
                     </p>
                     <p>
-                        Click on the dropdown button to select and see the books in each category.
+                        <b>Click on the dropdown button to select and see the books in each category.</b>
                     </p>
                 </Container>
             </Jumbotron>
